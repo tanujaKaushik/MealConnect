@@ -20,11 +20,13 @@ export default function Welcome() {
       <div className="container">
          <div className="content">
                <div className="first-div"></div>
+
                <div className="mid-div">
                   <h1>Share Meals , Spread Joy </h1>
                   <p>Join our <span>community</span> making a difference.</p>
                   <button onClick={()=> {console.log("started"); navigate('/register') }}> Let's get started!! </button>
                </div>
+      
                <div className="last-div"></div>
          </div>
          <div className="img-container">
@@ -78,12 +80,16 @@ overflow-x: hidden;
 
    .intro{
      margin: 2rem 0rem 5rem 0rem;
+     position: relative;
+     z-index:-1;
    }
 
 .container{
    display:grid;
    margin:2rem 0rem;
    grid-template-columns:40% 60%;
+   grid-template-rows: auto;
+   overflow:visible;
       @media screen and (max-width:720px) {
          grid-template-columns: 100%; 
       }
@@ -96,6 +102,7 @@ overflow-x: hidden;
          height:auto;
          justify-content:center;
          text-align:right;
+         z-index: 1;
          h1{
             font-size:2rem;
             font-family:"Poppins";
@@ -130,12 +137,16 @@ overflow-x: hidden;
       font-size:1.25rem;
       border:none;
       cursor: pointer;
+      display: inline-block;
+      position: relative;
+      z-index: 100;
+      transition: background-color 0.3s ease;
       &:hover {
-         background-color: #45b1e8;
+         background-color: #45b1e8 !important;
       }
-      @media screen and (max-width:720px){
-         font-size:1rem;
-      }
+      // @media screen and (max-width:720px){
+      //    font-size:1rem;
+      // }
    }
    .img-container{
       display:grid;

@@ -65,7 +65,7 @@ export default function SetAvatar() {
                 "baat-cheet-user",
                 JSON.stringify(user)
               );
-              navigate("/chat");
+              navigate("/home");
             } else {
               toast.error("Error setting avatar. Please try again.", toastOptions);
             }

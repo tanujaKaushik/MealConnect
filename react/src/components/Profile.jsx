@@ -33,12 +33,13 @@ export default function Profile({ currentUser, onClose }) {
     <ModalOverlay>
       <ModalContent>
         <form onSubmit={handleSubmit}>
-            <div className="image">
+            <div className="image" > 
             {
                 currentUser.avatarImage ? 
                 (<img 
                     src={`data:image/svg+xml;base64,${currentUser.avatarImage}`} 
-                    alt="avatar" 
+                    alt="avatar"
+                     id="avatarimg"
                 />) : 
             ( <img src={Logo} alt="avatar"/>)
             }
@@ -46,7 +47,7 @@ export default function Profile({ currentUser, onClose }) {
             <h2 className="username">{currentUser.username}</h2>
             <h4 className='email'>{currentUser.email}</h4>
             {/* <button type="submit">Close <IoMdClose /></button> */}
-            <button type="submit"><IoMdClose/></button>
+            <button type="submit" id="profileclose"><IoMdClose/></button>
          </form>
       </ModalContent>
     </ModalOverlay>
@@ -73,13 +74,6 @@ const ModalContent = styled.div`
   display: flex;
   justify-content:center;
   text-align:center;
-  .image{
-    margin-bottom:1rem;
-    height:11rem;
-    img{
-        height:9rem;
-    }
-  }
   .username{
     color:black;
   };
@@ -87,12 +81,21 @@ const ModalContent = styled.div`
     margin-top: 0.7rem;
     color:#7f7f7f;
   };
-  button {
+  #avatarimg{
+    // margin-bottom:1rem;
+    // height:11rem;
+    // img{
+        height:9rem;
+    // }
+  }
+  #profileclose {
     margin-top:2rem;
+    background-color: #000036;
+    border:solid black 2px;
     height:2rem;
-    color:white;
     font-size:1rem;
     cursor: pointer;
+    color:black;
     transition: all 0.2s ease-in-out;
     align-items:center;
     &:hover {

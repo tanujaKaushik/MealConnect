@@ -29,14 +29,14 @@ module.exports.register = async (req, res, next) => {
 module.exports.login = async (req, res, next) => {
     // console.log(req.body);
     try{
-        const {username, email, password} = req.body;
+        const {username, password} = req.body;
     
         const user = await User.findOne({username});
         if(!user)
             return res.json({msg: "Wrong Credentials", status: false});
         
         const passwordCheck = await bcrypt.compare(password, user.password);
-        if(email !== user.email || !passwordCheck)
+        if(!passwordCheck)
             return res.json({msg:"Wrong Credentials", status: false });
 
         if(passwordCheck)

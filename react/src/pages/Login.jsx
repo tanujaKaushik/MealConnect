@@ -11,7 +11,6 @@ export default function Login() {
     const navigate = useNavigate();
     const [values, setValues] = useState({
         username:"",
-        email:"",
         password:""
     });
 
@@ -35,17 +34,11 @@ export default function Login() {
     };
 
     const handleValidation = () => {
-        const  { username, email, password } = values;
+        const  { username, password } = values;
 
         if(username ===""){
             toast.error(
                 "Username required for login",
-                toastOptions
-            );
-            return false;
-        }else if(email === ""){
-            toast.error(
-                "Email required for login",
                 toastOptions
             );
             return false;
@@ -60,10 +53,9 @@ export default function Login() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (handleValidation()){
-            const {email, username, password} = values;
+            const {username, password} = values;
             const {data} = await axios.post(loginRoute, {
                 username,
-                email,
                 password
             });
             if(data.status===false){
@@ -89,12 +81,12 @@ export default function Login() {
                     name="username" 
                     onChange={(e)=>{handleChange(e)}}
                 />
-                <input 
+                {/* <input 
                     type = "email" 
                     placeholder='Email' 
                     name="email" 
                     onChange={(e)=>{handleChange(e)}}
-                />
+                /> */}
                 <input 
                     type = "password" 
                     placeholder='Password' 

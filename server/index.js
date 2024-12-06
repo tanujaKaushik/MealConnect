@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
 const messagesRoute = require("./routes/messagesRoute");
+const foodRoutes = require("./routes/foodRoutes");
 const socket = require("socket.io");
 
 const app = express();
@@ -31,6 +32,7 @@ mongoose.connect(process.env.MONGO_URL)
 
 app.use("/api/auth",userRoutes);
 app.use("/api/messages",messagesRoute);
+app.use("/api/food",foodRoutes);
 
 const server = app.listen(process.env.PORT, () =>{
     console.log( `Server is running on port ${process.env.PORT}`);

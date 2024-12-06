@@ -78,7 +78,7 @@ export default function Register() {
             }
             if(data.status===true){
                 localStorage.setItem('baat-cheet-user',JSON.stringify(data.user));
-                navigate("/home");
+                navigate("/setAvatar");
             }
         }
     };
